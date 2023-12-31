@@ -29,21 +29,21 @@
                 </div>             
             </div>
             <div class="col-lg-8">
-                <div class="form-group">
-                    <h5>Order Status Details:</h5>
-                </div>
                 <table class="table table-bordered verticle-middle table-responsive-sm">
                     <thead>
                         <tr>
-                            <th scope="col">Receive Order</th>
-                            <th scope="col">Payment Status</th>
-                            <th scope="col">Delivery Staus</th>
-                            <th scope="col">Action</th>
+                            <th scope="col" colspan="4"><h6>Order Status & Details:</h6></th>
+                        </tr>
+                        <tr>
+                            <th scope="col"><h6>Receive Order</h6></th>
+                            <th scope="col"><h6>Status</h6></th>
+                            <th scope="col"><h6>Delivery Staus</h6></th>
+                            <th scope="col"><h6>Action</h6></th>
                         </tr>
                     </thead>
                     <tbody>
                         <td>
-                            <label style="color:black">{{ $order->created_at->format('d F Y') }}</label>
+                            <label style="color:grey">{{ $order->created_at->format('d F Y') }}</label>
                         </td>
                         <td>
                             <label class="badge badge-primary">{{ $order->payment_status }}</label>
@@ -73,70 +73,70 @@
                     </tbody>
                 </table>
                 <br>
-                <div class="form-group">
-                    <h5>Product Details:</h5>
-                </div>
                 <table class="table table-bordered verticle-middle table-responsive-sm">
                     <thead>
                         <tr>
-                            <th scope="col">Product Name</th>
-                            <th scope="col">Price</th>
-                            <th scope="col">Size</th>
-                            <th scope="col">Color</th>
-                            <th scope="col">Category</th>
-                            <th scope="col">Brand</th>
-                            <th scope="col">Grade</th>
+                            <th scope="col" colspan="7"><h6>Product Details:</h6></th>
+                        </tr>
+                        <tr>
+                            <th scope="col"><h6>Product Name</h6></th>
+                            <th scope="col"><h6>Price</h6></th>
+                            <th scope="col"><h6>Size</h6></th>
+                            <th scope="col"><h6>Color</h6></th>
+                            <th scope="col"><h6>Category</h6></th>
+                            <th scope="col"><h6>Brand</h6></th>
+                            <th scope="col"><h6>Grade</h6></th>
                         </tr>
                     </thead>
                     <tbody>
                         <td>
-                            <label style="color:black">{{ $order->product_name }}</label>
+                            <label style="color:grey">{{ $order->product_name }}</label>
                         </td>
                         <td>
-                            <label style="color:black">RM {{ $order->product_price }}.00</label>
+                            <label style="color:grey">RM {{ $order->product_price }}.00</label>
                         </td>
                         <td>
-                            <label style="color:black">{{ $order->product_size }}</label>
+                            <label style="color:grey">{{ $order->product_size }}</label>
                         </td>
                         <td>
-                            <label style="color:black">{{ $order->product_color}}</label>
+                            <label style="color:grey">{{ $order->product_color}}</label>
                         </td>
                         <td>
-                            <label style="color:black">{{ $order->product_category }}</label>
+                            <label style="color:grey">{{ $order->product_category }}</label>
                         </td>
                         <td>
-                            <label style="color:black">{{ $order->product_brand }}</label>
+                            <label style="color:grey">{{ $order->product_brand }}</label>
                         </td>
                         <td>
-                            <label style="color:black">{{ $order->product_grade }}</label>
+                            <label style="color:grey">{{ $order->product_grade }}</label>
                         </td>
                     </tbody>
                 </table>
                 <br>
-                <div class="form-group">
-                    <h5>User Details:</h5>
-                </div>
                 <table class="table table-bordered verticle-middle table-responsive-sm">
                     <thead>
                         <tr>
-                            <th scope="col">Name</th>
-                            <th scope="col">Address</th>
-                            <th scope="col">Phone Number</th>
-                            <th scope="col">Email</th>
+                            <th scope="col" colspan="4"><h6>Buyer Details:</h6></th>
+                        </tr>
+                        <tr>
+                            <th scope="col"><h6>Name</h6></th>
+                            <th scope="col"><h6>Address</h6></th>
+                            <th scope="col"><h6>Phone Number</h6></th>
+                            <th scope="col"><h6>Email</h6></th>
                         </tr>
                     </thead>
                     <tbody>
                         <td>
-                            <label style="color:black">{{ $order->user_name }}</label>
+                            <label style="color:grey">{{ $order->user_name }}</label>
                         </td>
                         <td>
-                            <label style="color:black">{{ $order->user_address }}</label>
+                            <label style="color:grey">{{ $order->user_address }}</label>
                         </td>
                         <td>
-                            <label style="color:black">0{{ $order->user_pnumber }}</label>
+                            <label style="color:grey">0{{ $order->user_pnumber }}</label>
                         </td>
                         <td>
-                            <label style="color:black">{{ $order->user_email}}</label>
+                            <label style="color:grey">{{ $order->user_email}}</label>
                         </td>
                     </tbody>
                 </table>

@@ -83,6 +83,12 @@
 						<i class="tf-ion-android-cart"></i></a> --}}
 						<!-- / Cart -->
 					<li>
+						<a href="#" id="cart-link"class="nav-link">
+							Cart
+						</a>
+						<form id="cart-form" action="{{ url('show_cart') }}" style="display: none;">
+							@csrf						
+						</form>
 						<a href="#" id="logout-link"class="nav-link">
 							Logout
 						</a>
@@ -260,6 +266,14 @@
 
     <!-- Main Js File -->
     <script src="{{ asset('assets2/js/script.js') }}"></script>
+
+	<!-- Show Cart -->
+	<script>
+		document.getElementById('cart-link').addEventListener('click', function(event) {
+			event.preventDefault();
+			document.getElementById('cart-form').submit();
+		});
+	</script>
 
 	<!-- Logout -->
 	<script>

@@ -151,7 +151,7 @@
 
                     <li class="nav-label">Shop</li>
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
-                                class="ti-bag"></i><span class="nav-text">Online Shop</span></a>
+                                class="ti-bag"></i><span class="nav-text">Thieves Thrift Shop</span></a>
                         <ul aria-expanded="false">
                             <li><a href="{{ url('home') }}">Home</a></li>
                             <li><a href="{{ route('shop') }}">Product</a></li>
