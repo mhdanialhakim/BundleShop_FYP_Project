@@ -9,7 +9,7 @@
 @endif
 <div class="hero-slider">
     @foreach ( $product as $productItem )
-    <div class="slider-item th-fullpage hero-area" style="background-image: url('{{ asset('images/'.$productItem->image) }}');background-position: center center; background-size: 110% auto;">
+    <div class="slider-item th-fullpage hero-area" style="background-image: url('{{ asset('images/'.$productItem->image) }}');background-position: center center; background-size: 41% auto;">
       <div class="container">
         <div class="row">
           <div class="col-lg-8 text-center">

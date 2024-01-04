@@ -23,9 +23,15 @@ class MainPageController extends Controller
         return view('MainPage.home', compact('product','latestProduct'));
     }
 
-    public function shop(Request $request){
+    public function shop(Request $request, $grade = null){
         // dd(Auth::user()->role);
-        $d['model'] = Product::get();
+
+        $query = Product::query();
+
+        if ($grade) {
+            $query->where('pgrade', $grade);
+        }
+        $d['model'] = $query->get();
         // $d['role']=Auth::user()->role;
         return view('MainPage.shop',$d);
     }

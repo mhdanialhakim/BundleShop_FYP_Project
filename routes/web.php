@@ -64,7 +64,7 @@ Route::get('/show-order/{id}', [OrderController::class, 'show'])->name('show-ord
 
 //Main Page
 Route::get('/home', [MainPageController::class, 'home'])->name('home');
-Route::get('/shop', [MainPageController::class, 'shop'])->name('shop');
+Route::get('/shop/{grade?}', [MainPageController::class, 'shop'])->name('shop');
 Route::get('/product/{id}', [MainPageController::class, 'product'])->name('product');
 Route::post('/add_cart/{id}', [MainPageController::class, 'add_cart']);
 Route::get('/show_cart', [MainPageController::class, 'show_cart']);
