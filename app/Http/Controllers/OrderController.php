@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
+
 
 class OrderController extends Controller
 {
@@ -21,6 +23,8 @@ class OrderController extends Controller
         $order->delivery_status = "Delivered";
 
         $order->save();
+
+        Alert::success('Product deliver successfully.');
 
         return redirect()->back();
     }

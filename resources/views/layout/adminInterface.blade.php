@@ -14,6 +14,7 @@
 </head>
 
 <body>
+    @include ('sweetalert::alert')
 
     <!--*******************
         Preloader start

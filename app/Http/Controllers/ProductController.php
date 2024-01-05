@@ -7,6 +7,7 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ProductController extends Controller
 {
@@ -45,9 +46,10 @@ class ProductController extends Controller
             $input['image'] = $profileImage;
         }
         Product::create($input);
+
+        Alert::success('Product added successfully.');
       
-        return redirect()->route('index-product')
-                        ->with('success','Product created successfully.');
+        return redirect()->route('index-product');
         
     }
 
@@ -119,11 +121,14 @@ class ProductController extends Controller
                 ]);
             }
 
+        Alert::success('Product update successfully.');
+
         return redirect()->route('index-product');
     }
 
     public function delete($id){
         Product::where('pid',$id)->delete();
+        Alert::warning('Product delete successfully.');
         return redirect()->route('index-product');
     }
 }
