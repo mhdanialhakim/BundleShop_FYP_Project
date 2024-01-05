@@ -31,9 +31,8 @@
                   <thead>
                     <tr>
                       <th class="">Product</th>
-                      <th class="">Price</th>
-                      <th class="">Catgory</th>
-                      <th class="">Grade</th>
+                      <th></th>
+                      <th class="">Price</th>                     
                       <th class="">Actions</th>
                     </tr>
                   </thead>
@@ -44,18 +43,15 @@
                       <td class="">
                         <div class="product-info">
                           <img width="80" src="images/{{ $cart->product_image }}" alt="" />
-                          <a>{{ $cart->product_name }}, Size: {{ $cart->product_size }}</a>
                         </div>
+                      </td>
+                      <td>
+                        <a>{{ $cart->product_name }}</a><br>
+                        Brand: {{ $cart->product_brand }}, Size: {{ $cart->product_size }}, Grade: {{ $cart->product_grade }}, Color: {{ $cart->product_color }}
                       </td>
                       <td class="">
                         RM {{ $cart->product_price }}.00
-                      </td>
-                      <td class="">
-                        {{ $cart->product_category }}
-                      </td>
-                      <td class="">
-                        {{ $cart->product_grade }}
-                      </td>
+                      </td>                     
                       <td class="">
                         <a class="product-remove" onclick="return confirm('Are you sure to remove?')" href="{{ url('remove_cart',$cart->cartid) }}">Remove</a>
                       </td>

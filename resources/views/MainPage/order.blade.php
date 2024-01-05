@@ -30,6 +30,7 @@
 									<th>Order ID</th>
 									<th>Date</th>
 									<th>Item</th>
+                                    <th></th>
 									<th>Total Price</th>
 									<th>Status</th>
 									<th></th>
@@ -46,7 +47,12 @@
                                     </td>
                                     <td>
                                         <img width="60" src="images/{{ $order->product_image }}">
-                                        {{ $order->product_name }} Grade: {{ $order->product_grade }}
+                                        
+                                    </td>
+                                    <td>
+                                        <a>{{ $order->product_name }}</a><br> 
+                                        Brand: {{ $order->product_brand }}, Size: {{ $order->product_size }}, Grade: {{ $order->product_grade }}, Color: {{ $order->product_color }}<br>
+                                        <h6> Deliver Address: <br>{{ $order->user_address }}</h6>
                                     </td>
                                     <td>
                                         RM {{ $order->product_price }}.00

@@ -56,12 +56,13 @@
                       <?php $totalprice=0; ?>
                       @foreach( $cart as $cart)
                       <div class="media product-card">
-                         <a class="pull-left" href="product-single.html">
+                         <a class="pull-left">
                             <img class="media-object" src="images/{{ $cart->product_image }}" alt="Image" />
                          </a>
                          <div class="media-body">
-                            <h4 class="media-heading"><a href="product-single.html">{{ $cart->product_name }}</a></h4>
-                            <p class="price">RM {{ $cart->product_price }}.00</p>
+                            <h4 class="media-heading"><a>{{ $cart->product_name }}</a></h4>
+                            <h6>Deliver Address:<br><p>{{ $cart->user_address }}</p></h6>
+                            <a class="price">RM {{ $cart->product_price }}.00</a><br>
                             <span class="remove"><a onclick="return confirm('Are you sure to remove?')" href="{{ url('remove_cart',$cart->cartid) }}" >Remove</a></span>
                          </div>
                       </div>
