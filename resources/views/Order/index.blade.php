@@ -31,33 +31,33 @@
             </tr>
         </thead>
         <tbody style="color:grey">
-            @foreach ( $order as $order )
+            @foreach ( $order as $orders )
             <tr>
-                <td>{{  $order->user_name }}</td>
-                <td>{{  $order->product_name }}</td>
-                <td ><span class="badge badge-primary" style="color:white">{{  $order->payment_status }}</span></td>
-                @if($order->delivery_status=='Preparing')
-                    <td><span class="badge badge-warning" style="color:white">{{  $order->delivery_status }}</span></td>
-                @elseif($order->delivery_status=='Delivered')
-                    <td><span class="badge badge-info" style="color:white">{{  $order->delivery_status }}</span></td>
-                @elseif($order->delivery_status=='Received')
-                    <td><span class="badge badge-success" style="color:white">{{  $order->delivery_status }}</span></td>
+                <td>{{  $orders->user_name }}</td>
+                <td>{{  $orders->product_name }}</td>
+                <td ><span class="badge badge-primary" style="color:white">{{  $orders->payment_status }}</span></td>
+                @if($orders->delivery_status=='Preparing')
+                    <td><span class="badge badge-warning" style="color:white">{{  $orders->delivery_status }}</span></td>
+                @elseif($orders->delivery_status=='Delivered')
+                    <td><span class="badge badge-info" style="color:white">{{  $orders->delivery_status }}</span></td>
+                @elseif($orders->delivery_status=='Received')
+                    <td><span class="badge badge-success" style="color:white">{{  $orders->delivery_status }}</span></td>
                 @else
-                    <td><span class="badge badge-danger" style="color:white">{{  $order->delivery_status }}</span></td>
+                    <td><span class="badge badge-danger" style="color:white">{{  $orders->delivery_status }}</span></td>
                 @endif
                 <td>
-                    @if($order->delivery_status=='Preparing')
-                    <a href="{{ url('delivered',$order->orderid) }}" onClick="return confirm('Are you sure this product is delivered?')" class="btn btn-square btn-outline-dark">
+                    @if($orders->delivery_status=='Preparing')
+                    <a href="{{ url('delivered',$orders->orderid) }}" onClick="return confirm('Are you sure this product is delivered?')" class="btn btn-square btn-outline-dark">
                         Delivered
                     </a>
-                    @elseif($order->delivery_status=='Canceled')
+                    @elseif($orders->delivery_status=='Canceled')
                     <i style="color:red">Canceled by Buyer</i>
                     @else
                     <i>Delivered</i>
                     @endif
                 </td>
                 <td>
-                    <form action="{{ route('show-order',['id'=>$order->orderid]) }}" class="d-inline">
+                    <form action="{{ route('show-order',['id'=>$orders->orderid]) }}" class="d-inline">
                         <button class="btn btn-outline-light">
                             <i class="fa fa-eye"></i>
                         </button>
@@ -68,5 +68,6 @@
             @endforeach
         </tbody>
     </table>
+    {{ $order->links() }}
 </div>
 @endsection

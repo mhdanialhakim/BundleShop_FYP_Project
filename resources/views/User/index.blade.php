@@ -130,5 +130,6 @@
             @endforeach
         </tbody>
     </table>
+    {{ $model->links() }}
 </div>
 @endsection

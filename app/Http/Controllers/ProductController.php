@@ -13,9 +13,7 @@ class ProductController extends Controller
     //
 
     public function index(){
-        $d['model']=Product::select('product.*','images.location')
-        ->join('images', 'images.pid', '=', 'product.pid','left')
-        ->get();
+        $d['model']=Product::paginate(10);
 
         return view('Product.index',$d);
         
