@@ -16,7 +16,7 @@ class ProductGradeChart
 
     public function build(): \ArielMejiaDev\LarapexCharts\DonutChart
     {
-        $productGrade = Order::get();
+        $productGrade = Order::where('delivery_status', 'Received')->get();
         $data = [
             $productGrade -> where('product_grade','A')->count(),
             $productGrade -> where('product_grade','B')->count(),
@@ -30,7 +30,7 @@ class ProductGradeChart
         return $this->chart->donutChart()
             ->setTitle('Highest Sales By Grade')
             ->setSubtitle(date('Y'))
-            ->setHeight(400)
+            ->setHeight(350)
             ->addData($data)
             ->setLabels($label);
     }

@@ -49,17 +49,18 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-4 col-xs-12 col-sm-4">
-				@guest
+				<i class="tf-ion-social-instagram"></i>
+				<a class="nav-link" href="https://www.instagram.com/thieves.thrift_?igsh=ZDE1MWVjZGVmZQ==">thieves.thrift_</a>
+				{{-- @guest
 				<div class="contact-number">
 					<i class=""></i>
-					{{-- <span>{{ Auth::user()->name }}</span> --}}
 				</div>
 				@else
 				<div class="nav-link">
 					<i class=""></i>
 					<a>{{ Auth::user()->name }}</a>
 				</div>
-				@endguest
+				@endguest --}}
 			</div>
 			<div class="col-md-4 col-xs-12 col-sm-4 text-center" >
 				<h1>Thieves Thrift</h1>

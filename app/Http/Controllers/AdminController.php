@@ -6,12 +6,13 @@ use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Order;
 use Illuminate\Http\Request;
+use App\Charts\MonthlySalesChart;
 use App\Charts\ProductGradeChart;
 
 class AdminController extends Controller
 {
     //
-    public function dashboard(ProductGradeChart $chart){
+    public function dashboard(ProductGradeChart $chart, MonthlySalesChart $barchart){
 
         $order = Order::all();
         $totalSale = 0;
@@ -39,8 +40,9 @@ class AdminController extends Controller
         $receiveOrder = $order->where('delivery_status', 'Received')->count();
         $cancelOrder = $order->where('delivery_status', 'Canceled')->count();
         $data['chart'] = $chart->build();
+        $monthltData['chart'] = $barchart->build();
 
         
-        return view('Admin.dashboard',compact('totalSale','saleMonthly','totalOrder','preparingOrder','receiveOrder','cancelOrder','data'));
+        return view('Admin.dashboard',compact('totalSale','saleMonthly','totalOrder','preparingOrder','receiveOrder','cancelOrder','data','monthltData'));
     }
 }
