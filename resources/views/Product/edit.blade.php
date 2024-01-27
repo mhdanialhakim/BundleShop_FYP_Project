@@ -106,7 +106,7 @@
                                 <label class="col-lg-3 col-form-label" style="color:black" >Price (RM) <span class="text-danger">*</span>
                                 </label>
                                 <div class="col-lg-6">
-                                    <input type="text" class="form-control" value="{{ $model->pprize }}" name="pprize" placeholder="">
+                                    <input type="text" class="form-control" value="{{ $model->pprice }}" name="pprice" placeholder="">
                                 </div>
                             </div>
                             <br>

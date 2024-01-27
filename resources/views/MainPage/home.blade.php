@@ -51,7 +51,7 @@
 					</div>
 					<div class="product-content">
 						<h4><a href="{{ route('product',['id'=>$latestProduct->pid]) }}">{{  $latestProduct->pname }}</a></h4>
-						<p class="price">RM{{  $latestProduct->pprize }}.00</p>
+						<p class="price">RM{{  $latestProduct->pprice }}.00</p>
 					</div>
 				</div>
 			</div>

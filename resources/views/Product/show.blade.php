@@ -102,7 +102,7 @@
                 </div>
                 <div class="form-group">
                     {{-- <label style="color:black">Price: </label> --}}
-                    <h3 style="color:black">RM {{ $model->pprize }}.00</h3>
+                    <h3 style="color:black">RM {{ $model->pprice }}.00</h3>
                 </div>
 
                 <table class="table table-bordered verticle-middle table-responsive-sm">

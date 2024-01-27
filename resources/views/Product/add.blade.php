@@ -86,7 +86,7 @@
                 <label class="col-lg-3 col-form-label" style="color:black" >Price (RM) <span class="text-danger">*</span>
                 </label>
                 <div class="col-lg-6">
-                    <input type="text" class="form-control" name="pprize" placeholder="">
+                    <input type="text" class="form-control" name="pprice" placeholder="">
                 </div>
             </div>
             <div class="form-group row">

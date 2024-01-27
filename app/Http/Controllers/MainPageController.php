@@ -53,7 +53,7 @@ class MainPageController extends Controller
             //product:
             $cart->product_id = $product->pid;
             $cart->product_name = $product->pname;
-            $cart->product_price = $product->pprize;
+            $cart->product_price = $product->pprice;
             $cart->product_image = $product->image;
             $cart->product_brand = $product->pbrand;
             $cart->product_color = $product->pcolor;

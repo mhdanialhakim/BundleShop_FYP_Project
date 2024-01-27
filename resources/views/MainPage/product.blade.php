@@ -51,7 +51,7 @@
 			<div class="col-md-7">
 				<div class="single-product-details">
 					<h1>{{ $model->pname }}</h1>
-					<h3>RM{{ $model->pprize }}.00</h3>
+					<h3>RM{{ $model->pprice }}.00</h3>
 					
 					<p class="product-description mt-20">
 						{{-- test --}}

@@ -33,7 +33,7 @@ class ProductController extends Controller
             'pcolor' => 'required',
             'psize' => 'required',
             'pavailability' => 'required',
-            'pprize' => 'required',
+            'pprice' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gi',
         ]);
 
@@ -68,7 +68,7 @@ class ProductController extends Controller
     //     $model->pcolor = $request->pcolor;
     //     $model->psize = $request->psize;
     //     $model->preview = $request->preview;
-    //     $model->pprize = $request->pprize;
+    //     $model->pprice = $request->pprice;
     //     $model->save();
     //     // dd($model);
     //         $fileName = time().'_'.$model->id.'.'.$request->file->getClientOriginalExtension();
@@ -100,7 +100,7 @@ class ProductController extends Controller
             'pcolor'=>$request->pcolor,
             'psize'=>$request->psize,
             'pavailability'=>$request->pavailability,
-            'pprize'=>$request->pprize,
+            'pprice'=>$request->pprice,
         ]);
 
         if($request->hasFile('image'))

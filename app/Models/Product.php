@@ -12,6 +12,6 @@ class Product extends Model
     protected $table = 'product';
     protected $primaryKey = 'pid';
     protected $fillable = [
-        'pname', 'pcategory', 'pbrand', 'pgrade', 'pcolor', 'psize', 'pavailability', 'pprize', 'image'
+        'pname', 'pcategory', 'pbrand', 'pgrade', 'pcolor', 'psize', 'pavailability', 'pprice', 'image'
     ];
 }
