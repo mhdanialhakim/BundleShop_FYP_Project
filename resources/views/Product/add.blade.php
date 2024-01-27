@@ -65,7 +65,20 @@
                 <label class="col-lg-3 col-form-label" style="color:black" >Color <span class="text-danger">*</span>
                 </label>
                 <div class="col-lg-6">
-                    <input type="text" class="form-control" name="pcolor" placeholder="">
+                <select class="form-control" name="pcolor">
+                    <option value="">Select color</option>
+                    <option value="Red" style="color:red">Red</option>
+                    <option value="Green" style="color:green">Green</option>
+                    <option value="Blue" style="color:blue">Blue</option>
+                    <option value="Purple" style="color:purple">Purple</option>
+                    <option value="Pink" style="color:pink">Pink</option>
+                    <option value="Yellow" style="color:yellow">Yellow</option>
+                    <option value="Orange" style="color:orange">Orange</option>
+                    <option value="Brown" style="color:brown">Brown</option>
+                    <option value="Black" style="color:black">Black</option>
+                    <option value="Grey" style="color:grey">Grey</option>
+                    <option value="White" style="color:white">White</option>
+                </select>
                 </div>
             </div>
             <div class="form-group row">
