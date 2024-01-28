@@ -24,7 +24,31 @@ class OrderController extends Controller
 
         $order->save();
 
-        Alert::success('Product deliver successfully.');
+        Alert::success('Order deliver successfully.');
+
+        return redirect()->back();
+    }
+
+    public function hold_delayed($id){
+
+        $order=Order::find($id);
+        $order->delivery_status = "Hold/Delayed";
+
+        $order->save();
+
+        Alert::success('Order update successfully.');
+
+        return redirect()->back();
+    }
+
+    public function admin_cancel($id){
+
+        $order=Order::find($id);
+        $order->delivery_status = "Cancel";
+
+        $order->save();
+
+        Alert::success('Order cancel successfully.');
 
         return redirect()->back();
     }

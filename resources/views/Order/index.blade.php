@@ -27,6 +27,7 @@
                 <th>Product Name</th>
                 <th>Payment Status</th>
                 <th>Delivery Status</th>
+                <th>Status</th>
                 <th>Action</th>             
             </tr>
         </thead>
@@ -38,6 +39,8 @@
                 <td ><span class="badge badge-primary" style="color:white">{{  $orders->payment_status }}</span></td>
                 @if($orders->delivery_status=='Preparing')
                     <td><span class="badge badge-warning" style="color:white">{{  $orders->delivery_status }}</span></td>
+                @elseif($orders->delivery_status=='Hold/Delayed')
+                    <td><span class="badge badge-warning" style="color:white">{{  $orders->delivery_status }}</span></td>
                 @elseif($orders->delivery_status=='Delivered')
                     <td><span class="badge badge-info" style="color:white">{{  $orders->delivery_status }}</span></td>
                 @elseif($orders->delivery_status=='Received')
@@ -47,11 +50,13 @@
                 @endif
                 <td>
                     @if($orders->delivery_status=='Preparing')
-                    <a href="{{ url('delivered',$orders->orderid) }}" onClick="return confirm('Are you sure this product is delivered?')" class="btn btn-square btn-outline-dark">
-                        Delivered
-                    </a>
-                    @elseif($orders->delivery_status=='Canceled')
-                    <i style="color:red">Canceled by Buyer</i>
+                    <i style="color:red">No Action Taken</i>
+                    @elseif($orders->delivery_status=='Hold/Delayed')
+                    <i style="color:red">Order is on Hold/Delayed</i>
+                    @elseif($orders->delivery_status=='Cancelled')
+                    <i>Cancelled by buyer</i>
+                    @elseif($orders->delivery_status=='Cancel')
+                    <i>Cancelled</i>
                     @else
                     <i>Delivered</i>
                     @endif

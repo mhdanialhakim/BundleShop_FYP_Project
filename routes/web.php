@@ -60,6 +60,8 @@ Route::delete('/delete-product/{id}', [ProductController::class, 'delete'])->nam
 //Order admin
 Route::get('/index-order', [OrderController::class, 'index'])->name('index-order')->middleware('auth');
 Route::get('/delivered/{id}', [OrderController::class, 'delivered']);
+Route::get('/hold_delayed/{id}', [OrderController::class, 'hold_delayed']);
+Route::get('/admin_cancel/{id}', [OrderController::class, 'admin_cancel']);
 Route::get('/show-order/{id}', [OrderController::class, 'show'])->name('show-order');
 
 //Main Page

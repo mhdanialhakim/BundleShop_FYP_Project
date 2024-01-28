@@ -204,7 +204,7 @@ class MainPageController extends Controller
     public function cancel_order($id){
 
         $order=Order::find($id);
-        $order->delivery_status = 'Canceled';
+        $order->delivery_status = 'Cancelled';
         $order->save();
 
         $product = Product::find($order->product_id);

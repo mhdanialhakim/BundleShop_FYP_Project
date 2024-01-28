@@ -51,6 +51,8 @@
                         <td>
                             @if($order->delivery_status=='Preparing')
                                 <label class="badge badge-warning">{{ $order->delivery_status }}</label>
+                            @elseif($order->delivery_status=='Hold/Delayed')
+                                <label class="badge badge-warning">{{ $order->delivery_status }}</label>
                             @elseif($order->delivery_status=='Delivered')
                                 <label class="badge badge-info">{{ $order->delivery_status }}</label>
                             @elseif($order->delivery_status=='Received')
@@ -61,13 +63,28 @@
                         </td>
                         <td>
                             @if($order->delivery_status=='Preparing')
-                            <a href="{{ url('delivered',$order->orderid) }}" onClick="return confirm('Are you sure this product is delivered?')" class="btn btn-square btn-outline-dark">
+                            <a href="{{ url('delivered',$order->orderid) }}" onClick="return confirm('Are you sure this order is delivered?')" class="btn btn-square btn-outline-dark">
                                 Delivered
                             </a>
-                            @elseif($order->delivery_status=='Canceled')
-                            <i style="color:red">Canceled by Buyer</i>
-                            @else
-                            <i>Delivered</i>
+                            <a href="{{ url('hold_delayed',$order->orderid) }}" onClick="return confirm('Are you sure hold/delayed this order?')" class="btn btn-square btn-outline-dark">
+                                Hold/Delayed
+                            </a>
+                            <a href="{{ url('admin_cancel',$order->orderid) }}" onClick="return confirm('Are you sure to cancel this order?')" class="btn btn-square btn-outline-dark">
+                                Cancel
+                            </a>
+                            @elseif($order->delivery_status=='Hold/Delayed')
+                            <a href="{{ url('delivered',$order->orderid) }}" onClick="return confirm('Are you sure this order is delivered?')" class="btn btn-square btn-outline-dark">
+                                Delivered
+                            </a>
+                            <a href="{{ url('admin_cancel',$order->orderid) }}" onClick="return confirm('Are you sure to cancel this order?')" class="btn btn-square btn-outline-dark">
+                                Cancel
+                            </a>
+                            @elseif($order->delivery_status=='Cancelled')
+                                <i style="color:red">Cancelled by Buyer</i>
+                            @elseif($order->delivery_status=='Cancel')
+                                <i style="color:red">Cancelled</i>
+                            @elseif($order->delivery_status=='Delivered')
+                                <i>Delivered</i>
                             @endif
                         </td>
                     </tbody>
