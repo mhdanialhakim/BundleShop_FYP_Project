@@ -124,8 +124,9 @@ class MainPageController extends Controller
 
             $id = Auth::User()->id;
             $cart = Cart::where('user_id','=',$id)->get();
+            $user = User::find($id);
 
-            return view('MainPage.checkout',compact('cart'));
+            return view('MainPage.checkout',compact('cart','user'));
         }
         else{
             return redirect('login');
@@ -153,9 +154,9 @@ class MainPageController extends Controller
             $order->product_size = $data->product_size;
             //cart user
             $order->user_id = $data->user_id;
-            $order->user_name = $data->user_name;
-            $order->user_address = $data->user_address;
-            $order->user_pnumber = $data->user_pnumber;
+            $order->user_name = $user->name;
+            $order->user_address = $user->address;
+            $order->user_pnumber = $user->pnumber;
             $order->user_email = $data->user_email;
             //order status
             $order->payment_status = 'Paid';
@@ -193,6 +194,7 @@ class MainPageController extends Controller
         if(Auth::id()){
             $id = Auth::User()->id;
             $order = Order::where('user_id','=',$id)->get();
+            auth()->user()->unreadNotifications->where('id', request('id'))->first()?->markAsRead();
 
             return view('MainPage.order',compact('order'));
         }

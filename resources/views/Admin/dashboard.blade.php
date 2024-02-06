@@ -114,9 +114,9 @@
 <script src="{{ $data['chart']->cdn() }}"></script>
 {{ $data['chart']->script() }}
 <br>
-<br>
+{{-- <br>
 {!! $monthltData['chart']->container() !!}
 
 <script src="{{ $monthltData['chart']->cdn() }}"></script>
-{{ $monthltData['chart']->script() }}
+{{ $monthltData['chart']->script() }} --}}
 @endsection

@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Order;
+use App\Notifications\DeliveredNotification;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Notification;
 use RealRashid\SweetAlert\Facades\Alert;
 
 
@@ -23,6 +26,11 @@ class OrderController extends Controller
         $order->delivery_status = "Delivered";
 
         $order->save();
+
+        $user = User::where('id', $order->user_id)
+        ->where('role','customer')
+        ->get();
+        Notification::send($user, new DeliveredNotification($order));
 
         Alert::success('Order deliver successfully.');
 

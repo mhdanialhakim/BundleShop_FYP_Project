@@ -83,6 +83,30 @@
 							Cart
 						<i class="tf-ion-android-cart"></i></a> --}}
 						<!-- / Cart -->
+					<li class="dropdown cart-nav dropdown-slide">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
+							Notification
+								@if(auth()->user()->unreadNotifications->count() > 0)
+									<label style="color: red">!</label>
+                                @endif
+						<div class="dropdown-menu cart-dropdown">
+							@if(auth()->user()->unreadNotifications->count() > 0)
+								@foreach (auth()->user()->unreadNotifications as $notification)
+								<div class="media">
+									<a href="{{ url($notification->data['url'].'?id='.($notification->id)) }}">
+									<h4>{{ $notification->data['title'] }}</h4>
+									<label>{{ $notification->data['product_name'] }} <strong>{{ $notification->data['message'] }}</strong>.</label>
+									<br><span class="notify-time">{{ $notification->created_at->diffForHumans() }}</span>
+									</a>
+								</div>
+								@endforeach
+							@else
+								<div class="media">
+									<h4 class="media-heading"><a href="#!">No Notification</a></h4>
+								</div>
+							@endif
+						</div>
+					</li>
 					<li>
 						<a href="#" id="cart-link"class="nav-link">
 							Cart

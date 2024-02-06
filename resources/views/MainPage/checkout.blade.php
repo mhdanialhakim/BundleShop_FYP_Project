@@ -60,10 +60,11 @@
                             <img class="media-object" src="images/{{ $cart->product_image }}" alt="Image" />
                          </a>
                          <div class="media-body">
-                            <h4 class="media-heading"><a>{{ $cart->product_name }}</a></h4>
-                            <h6>Deliver Address:<br><p>{{ $cart->user_address }}</p></h6>
+                            <h3 class="media-heading"><a>{{ $cart->product_name }}</a></h3>
+                            <h6>Deliver Address:<br><p>{{ $user->address }}</p></h6>
                             <a class="price">RM {{ $cart->product_price }}.00</a><br>
-                            <span class="remove"><a onclick="return confirm('Are you sure to remove?')" href="{{ url('remove_cart',$cart->cartid) }}" >Remove</a></span>
+                            <span class="remove"><a href="{{ route('update_profile_form',['id'=>$user->id]) }}" >Change address</a></span>
+                            {{-- <span class="remove"><a onclick="return confirm('Are you sure to remove?')" href="{{ url('remove_cart',$cart->cartid) }}" >Remove</a></span> --}}
                          </div>
                       </div>
                       <?php $totalprice=$totalprice + $cart->product_price ?>

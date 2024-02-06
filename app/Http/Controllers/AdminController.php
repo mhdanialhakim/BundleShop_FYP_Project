@@ -19,7 +19,7 @@ class AdminController extends Controller
         foreach($order as $order){
 
             // Check if the delivery status is not 'Canceled'
-            if ($order->delivery_status !== 'Canceled') {
+            if ($order->delivery_status == 'Received') {
                 $totalSale += $order->product_price;
             }
         }
@@ -40,9 +40,9 @@ class AdminController extends Controller
         $receiveOrder = $order->where('delivery_status', 'Received')->count();
         $cancelOrder = $order->where('delivery_status', 'Canceled')->count();
         $data['chart'] = $chart->build();
-        $monthltData['chart'] = $barchart->build();
+        // $monthltData['chart'] = $barchart->build();
 
         
-        return view('Admin.dashboard',compact('totalSale','saleMonthly','totalOrder','preparingOrder','receiveOrder','cancelOrder','data','monthltData'));
+        return view('Admin.dashboard',compact('totalSale','saleMonthly','totalOrder','preparingOrder','receiveOrder','cancelOrder','data'));
     }
 }

@@ -74,7 +74,7 @@ Route::get('/remove_cart/{id}', [MainPageController::class, 'remove_cart']);
 Route::get('/checkout_page', [MainPageController::class, 'checkout_page']);
 Route::get('/checkout_order', [MainPageController::class, 'checkout_order']);
 Route::get('/confirmation', [MainPageController::class, 'confirmation']);
-Route::get('/orders', [MainPageController::class, 'orders']);
+Route::get('/orders', [MainPageController::class, 'orders'])->name('delievered_order');
 Route::get('/cancel_order/{id}', [MainPageController::class, 'cancel_order']);
 Route::get('/receive_order/{id}', [MainPageController::class, 'receive_order']);
 Route::get('/profile/{id?}', [MainPageController::class, 'profile'])->name('profile');
