@@ -126,13 +126,14 @@
                         <tbody style="color:grey">
                             @php $pendingOrdersCount = 0; @endphp
                             @foreach ( $orders as $order )
-                            <tr>
-                                @if($order->delivery_status == 'Preparing' || $order->delivery_status == 'Hold/Delayed')
+                            @if($order->delivery_status == 'Preparing' || $order->delivery_status == 'Hold/Delayed')
+                            <tr>                              
                                 <td>{{ $order->user_name }}</td>
                                 <td>{{ $order->product_name }}</td>
                                 <td><span class="badge badge-warning" style="color:white">{{ $order->delivery_status }}</span></td>
-                                @endif
                             </tr>
+                            @php $pendingOrdersCount++; @endphp
+                            @endif                           
                             @endforeach
                             @if($pendingOrdersCount == 0)
                                 <tr>
