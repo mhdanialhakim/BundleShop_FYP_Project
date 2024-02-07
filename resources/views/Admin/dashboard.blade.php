@@ -108,12 +108,54 @@
 @endsection
 
 @section('content')
+<div class="row">
+    <div class="col-lg-8">
+            <div class="card-title">
+                <h5 style="color:black">Pending Placed Order</h5>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table student-data-table m-t-20">                       
+                        <thead style="color:black">
+                            <tr>
+                                <th>Buyer Name</th>
+                                <th>Product Name</th>
+                                <th>Delivery Status</th>
+                            </tr>
+                        </thead>
+                        <tbody style="color:grey">
+                            @php $pendingOrdersCount = 0; @endphp
+                            @foreach ( $orders as $order )
+                            <tr>
+                                @if($order->delivery_status == 'Preparing' || $order->delivery_status == 'Hold/Delayed')
+                                <td>{{ $order->user_name }}</td>
+                                <td>{{ $order->product_name }}</td>
+                                <td><span class="badge badge-warning" style="color:white">{{ $order->delivery_status }}</span></td>
+                                @endif
+                            </tr>
+                            @endforeach
+                            @if($pendingOrdersCount == 0)
+                                <tr>
+                                    <td colspan="3" style="text-align: center;">No new pending order.</td>
+                                </tr>
+                            @endif
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+    </div>
 
-{!! $data['chart']->container() !!}
+    <div class="col-lg-4">
+        <div class="ct-pie-chart">
+            {!! $data['chart']->container() !!}
 
-<script src="{{ $data['chart']->cdn() }}"></script>
-{{ $data['chart']->script() }}
-<br>
+            <script src="{{ $data['chart']->cdn() }}"></script>
+            {{ $data['chart']->script() }}
+            <br>
+        </div>
+    </div>
+</div>
+
 {{-- <br>
 {!! $monthltData['chart']->container() !!}
 
